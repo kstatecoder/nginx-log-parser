@@ -16,4 +16,17 @@ public class NginxLogFormat {
 		
 		public static int SIZE = 9;
 	}
+	
+	public static String getPathFromRequest(String request){
+		// routeKey
+		// Just get path out of the request/route
+		String[] splits = request.split("\\s+");
+		
+		
+		if (splits.length > 1) {
+			return splits[1];
+		} else {
+			return null;
+		}
+	}
 }

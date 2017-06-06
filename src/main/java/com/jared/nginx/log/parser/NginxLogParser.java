@@ -118,13 +118,13 @@ public class NginxLogParser {
 				incrementMapVal(map, statusKey);
 				// if a 50x add route and increment the occurances
 				if (statusKey.equals("50x")) {
-					String routeKey = entryData.get(NginxLogFormat.DefaultFormat.REQUEST);
+					String request = entryData.get(NginxLogFormat.DefaultFormat.REQUEST);
 
-					// routeKey
-					// Just get path out of the request/route
-					String[] splits = routeKey.split("\\s+");
-					if (splits.length > 1) {
-						incrementMapVal(map, splits[1]);
+					String route = NginxLogFormat.getPathFromRequest(request);
+					
+					
+					if (route != null && route.length() > 0 ) {
+						incrementMapVal(map, route);
 					}
 				}
 			}
