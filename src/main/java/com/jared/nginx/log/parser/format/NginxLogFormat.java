@@ -1,4 +1,4 @@
-package com.jared.nginx.log.parser;
+package com.jared.nginx.log.parser.format;
 
 public class NginxLogFormat {
 	
